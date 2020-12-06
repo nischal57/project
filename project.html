@@ -373,6 +373,7 @@ summary {
 <div id="load-packages" class="section level3">
 <h3>Load packages</h3>
 <pre class="r"><code>library(tidyverse) 
+library(skimr)
 library(datasauRus)</code></pre>
 </div>
 <div id="load-data" class="section level3">
@@ -382,7 +383,235 @@ library(datasauRus)</code></pre>
 </div>
 <div id="understanding-our-dataset" class="section level3">
 <h3>Understanding our dataset</h3>
-<p>There are 14 variable and 303 observations in our dataset.</p>
+<p>There are 14 variables and 303 observations in our dataset.</p>
+<p>We will print out the summary of our datasets.</p>
+<pre class="r"><code>heart %&gt;%
+  skim_without_charts()</code></pre>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">Piped data</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">303</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">14</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">14</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">age</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">54.37</td>
+<td align="right">9.08</td>
+<td align="right">29</td>
+<td align="right">47.5</td>
+<td align="right">55.0</td>
+<td align="right">61.0</td>
+<td align="right">77.0</td>
+</tr>
+<tr class="even">
+<td align="left">sex</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.68</td>
+<td align="right">0.47</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="odd">
+<td align="left">cp</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.97</td>
+<td align="right">1.03</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+<td align="right">2.0</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="left">trestbps</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">131.62</td>
+<td align="right">17.54</td>
+<td align="right">94</td>
+<td align="right">120.0</td>
+<td align="right">130.0</td>
+<td align="right">140.0</td>
+<td align="right">200.0</td>
+</tr>
+<tr class="odd">
+<td align="left">chol</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">246.26</td>
+<td align="right">51.83</td>
+<td align="right">126</td>
+<td align="right">211.0</td>
+<td align="right">240.0</td>
+<td align="right">274.5</td>
+<td align="right">564.0</td>
+</tr>
+<tr class="even">
+<td align="left">fbs</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.15</td>
+<td align="right">0.36</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="odd">
+<td align="left">restecg</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.53</td>
+<td align="right">0.53</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="left">thalach</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">149.65</td>
+<td align="right">22.91</td>
+<td align="right">71</td>
+<td align="right">133.5</td>
+<td align="right">153.0</td>
+<td align="right">166.0</td>
+<td align="right">202.0</td>
+</tr>
+<tr class="odd">
+<td align="left">exang</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.33</td>
+<td align="right">0.47</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="even">
+<td align="left">oldpeak</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.04</td>
+<td align="right">1.16</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">0.8</td>
+<td align="right">1.6</td>
+<td align="right">6.2</td>
+</tr>
+<tr class="odd">
+<td align="left">slope</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.40</td>
+<td align="right">0.62</td>
+<td align="right">0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+<td align="right">2.0</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="left">ca</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.73</td>
+<td align="right">1.02</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="odd">
+<td align="left">thal</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.31</td>
+<td align="right">0.61</td>
+<td align="right">0</td>
+<td align="right">2.0</td>
+<td align="right">2.0</td>
+<td align="right">3.0</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="left">target</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.54</td>
+<td align="right">0.50</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+</tr>
+</tbody>
+</table>
+<p>Ex. 2</p>
 </div>
 
 
