@@ -76,3 +76,16 @@ The minimum resting blood pressure is 94.0, naximum is 200.0, and mean is 131.6.
 Ex. 3.
 
 We will now calculate summary for male and female patients.
+
+First of all, we will mutate `sex` variable. 
+
+```{r}
+heart <- heart %>%
+mutate(sex = case_when(
+  sex== 0 ~ "Female",
+  sex == 1 ~ "Male") 
+)
+  
+heart
+```
+
