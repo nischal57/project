@@ -33,7 +33,7 @@ There are `r ncol(heart)` variables and `r nrow(heart)` observations in our data
 
 We will print out the summary of our dataset. 
 
-```{r}
+```{r echo=FALSE}
 heart %>%
   skim_without_charts()
 ```
@@ -102,4 +102,24 @@ ggplot(heart, aes(x=age, y=trestbps, fill = sex)) + geom_boxplot() +
   
 ```
 
+Ex. 4
 
+We will filter patients that are above 50 to visualize the relationship between their `age` and `blood cholestoral`. 
+
+```{r echo = FALSE}
+heart_old <- heart %>%
+  filter(age > 50)
+
+ggplot(heart_old,mapping = aes(x = age, y= chol))+
+  facet_wrap(.~sex) +
+  geom_point()+
+  geom_smooth(color ="red")+
+  labs(
+x = "Age/year",
+y = "serum cholestoral in mg/dl",
+title = "Old aged patients and Cholestoral",
+subtitle = "by gender")
+```
+
+
+Generally, the 'blood cholestoral` in female is low as their age increases, but in case of male, their cholesteroal level generally rises with the increase in their age. 
