@@ -165,3 +165,15 @@ subtitle = "by gender"
 ```
 
 Comparatively, less number of women with heart diseases have exercise-induced angina than man.
+
+
+Ex. 7
+
+Now, we will counnt the distribution of `chest pain` among our patients. 
+
+```{r echo = FALSE}
+heart %>%
+  count(cp, sort = TRUE)
+```
+
+Majority i.e. 143 patients had `type-0` chest pain while 87 had `type-2`, 50 `type-1` and 23 `type-3` which represent least number of patients.  
