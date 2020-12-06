@@ -122,4 +122,29 @@ subtitle = "by gender")
 ```
 
 
-Generally, the 'blood cholestoral` in female is low as their age increases, but in case of male, their cholesteroal level generally rises with the increase in their age. 
+Generally, the 'blood cholesterol` in female is low as their age increases, but in case of male, their cholesterol level generally rises with the increase in their age. 
+
+Ex. 5
+
+We'll count the cases of excercise-induced angina among heart patients. 
+
+### Mutating the variable first. 
+
+```{r echo=FALSE}
+heart <- heart %>%
+  mutate(exang = case_when(
+    exang == 1 ~ "Yes",
+    exang  == 0 ~ "NO")
+  )
+heart
+```
+
+
+Now, we will count the number of exercise-induced angina. 
+
+```{r}
+heart %>%
+  count(exang, sort = TRUE)
+```
+
+ So 204 patients didn't have exercise-induced angina while 99 had. 
