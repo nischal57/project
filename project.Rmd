@@ -154,9 +154,9 @@ Ex. 6
 
 We will love to see if such induced angina was more prevalent among male. 
 
-```{r}
+```{r echo FALSE}
 ggplot(heart, mapping = aes(x = age, y = exang))+
-geom_jitter()+
+geom_jitter(color="red")+
 facet_wrap(.~sex)+
 labs(
 title = "Prevalence of exercise-induced angina among heart patients",
@@ -164,4 +164,4 @@ subtitle = "by gender"
 )
 ```
 
-Comparatively, less number of women with heart diseases have less exercise-induced angina than man.
+Comparatively, less number of women with heart diseases have exercise-induced angina than man.
