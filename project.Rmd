@@ -41,7 +41,7 @@ heart %>%
 
 Ex. 2
 
-We will plot to visualize the relationship between `age` and `resting blood pressure` of a patient with a heart disease faceted by gender. 
+We will plot to visualize the relationship between `age` and `resting blood pressure` of a patient with a heart disease.
 
 ```{r echo = FALSE}
 ggplot(heart, mapping = aes(x = age, y = trestbps))+
@@ -50,8 +50,7 @@ ggplot(heart, mapping = aes(x = age, y = trestbps))+
   labs(
   x = "Age/years", 
   y = "Resting Blood Pressure",
-  title = "Resting Blood Pressure among patients of different ages",
-  subtitle = "by their gender"
+  title = "Resting Blood Pressure among patients of different ages"
 )
 
 
@@ -88,4 +87,19 @@ mutate(sex = case_when(
   
 heart
 ```
+
+Now, we have categorized gender of patients as a character variable. 
+
+We will create boxplot for `age`, `resting blood pressure`, `gender` variables. 
+
+```{r echo = FALSE}
+ggplot(heart, aes(x=age, y=trestbps, fill = sex)) + geom_boxplot() + 
+   
+  labs(
+    x = "Age/years", 
+    y = "Resting blood pressure"
+  )
+  
+```
+
 
