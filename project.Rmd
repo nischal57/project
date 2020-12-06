@@ -43,10 +43,10 @@ Ex. 2
 
 We will plot to visualize the relationship between `age` and `resting blood pressure` of a patient with a heart disease faceted by gender. 
 
-```{r}
-ggplot(heart, mapping = aes(x = age, y = trestbps), color = sex)+
+```{r echo = FALSE}
+ggplot(heart, mapping = aes(x = age, y = trestbps))+
   geom_point()+
-  facet_wrap(.~sex)+
+  geom_line(color = "violetred") +
   labs(
   x = "Age/years", 
   y = "Resting Blood Pressure",
@@ -57,3 +57,22 @@ ggplot(heart, mapping = aes(x = age, y = trestbps), color = sex)+
 
 ```
 
+
+It can not be inferred clearly the relationship between `age` and `resting blood pressure`, but generally aged patients tend to have more `resting blood pressure`. 
+
+
+### Summarising the `resting blood pressure` 
+
+```{r echo = FALSE}
+heart %>%
+  select(trestbps) %>%
+  summary()
+```
+
+
+The minimum resting blood pressure is 94.0, naximum is 200.0, and mean is 131.6.
+
+
+Ex. 3.
+
+We will now calculate summary for male and female patients.
