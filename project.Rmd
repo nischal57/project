@@ -148,3 +148,20 @@ heart %>%
 ```
 
  So 204 patients didn't have exercise-induced angina while 99 had. 
+
+
+Ex. 6
+
+We will love to see if such induced angina was more prevalent among male. 
+
+```{r}
+ggplot(heart, mapping = aes(x = age, y = exang))+
+geom_jitter()+
+facet_wrap(.~sex)+
+labs(
+title = "Prevalence of exercise-induced angina among heart patients",
+subtitle = "by gender"
+)
+```
+
+Comparatively, less number of women with heart diseases have less exercise-induced angina than man.
