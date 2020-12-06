@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse) 
 library(skimr)
 library(datasauRus)
+library(dplyr)
 ```
 
 ### Load data
@@ -30,7 +31,7 @@ Ex. 1.
 
 There are `r ncol(heart)` variables and `r nrow(heart)` observations in our dataset. 
 
-We will print out the summary of our datasets. 
+We will print out the summary of our dataset. 
 
 ```{r}
 heart %>%
@@ -40,5 +41,19 @@ heart %>%
 
 Ex. 2
 
-We will plot histog
+We will plot to visualize the relationship between `age` and `resting blood pressure` of a patient with a heart disease faceted by gender. 
+
+```{r}
+ggplot(heart, mapping = aes(x = age, y = trestbps), color = sex)+
+  geom_point()+
+  facet_wrap(.~sex)+
+  labs(
+  x = "Age/years", 
+  y = "Resting Blood Pressure",
+  title = "Resting Blood Pressure among patients of different ages",
+  subtitle = "by their gender"
+)
+
+
+```
 
