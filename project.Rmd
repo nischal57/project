@@ -9,7 +9,23 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r install packages}
-library(tidyverse)
-library()
+### Load packages
+
+```{r load-packages, message=FALSE}
+library(tidyverse) 
+library(datasauRus)
 ```
+
+### Load data
+
+```{r load-data, message = FALSE}
+heart <- read_csv("data/heart.csv")
+```
+
+
+Ex. 1. 
+
+### Understanding our dataset
+
+There are `r ncol(heart)` variables and `r nrow(heart)` observations in our dataset. 
+
