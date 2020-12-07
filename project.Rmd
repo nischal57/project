@@ -16,6 +16,7 @@ library(tidyverse)
 library(skimr)
 library(datasauRus)
 library(dplyr)
+library(tidymodels)
 ```
 
 ### Load data
@@ -177,3 +178,30 @@ heart %>%
 ```
 
 Majority i.e. 143 patients had `type-0` chest pain while 87 had `type-2`, 50 `type-1` and 23 `type-3` which represent least number of patients.  
+
+
+Ex. 8.
+
+We will try to model `thalach` which is 
+maximum heart rate achieved as dependent on `age`, `the resting blood pressure`, and `Cholesterol level`. 
+
+```{r}
+m_heart <- lm (thalach ~ age + chol + trestbps, data = heart)
+tidy(m_heart)
+```
+
+The model can be expressed in a formula as: 
+
+$predicted_maximum_heart_rate$ = $190 +  0.0329*chol - 1.09*age + 0.0849*trestbps$
+
+
+Ex. 9
+
+We will check if our model represent an accurate interaction between variables. 
+
+```{r echo=FALSE}
+glance(m_heart)$r.squared
+glance(m_heart)$adj.r.squared
+```
+
+The R squared value is 0.1686218 while adjusted R squared value is 0.1602802. These values are pretty low, so this model doesn't represent good interaction between the response and independent variables. 
