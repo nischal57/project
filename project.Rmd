@@ -79,7 +79,7 @@ We will now calculate summary for male and female patients.
 
 First of all, we will mutate `sex` variable. 
 
-```{r}
+```{r echo = FALSE}
 heart <- heart %>%
 mutate(sex = case_when(
   sex== 0 ~ "Female",
@@ -131,7 +131,7 @@ We'll count the cases of excercise-induced angina among heart patients.
 
 ### Mutating the variable first. 
 
-```{r echo=FALSE}
+```{r echo = FALSE}
 heart <- heart %>%
   mutate(exang = case_when(
     exang == 1 ~ "Yes",
@@ -185,7 +185,7 @@ Ex. 8.
 We will try to model `thalach` which is 
 maximum heart rate achieved as dependent on `age`, `the resting blood pressure`, and `Cholesterol level`. 
 
-```{r}
+```{r echo = FALSE}
 m_heart <- lm (thalach ~ age + chol + trestbps, data = heart)
 tidy(m_heart)
 ```
